@@ -152,6 +152,14 @@ class cdwlib_test(unittest.TestCase):
             assert cx_Oracle.connect(conn_str) == conn_str
 
 
+    def test_throttle(self):
+        import throttle
+        #Test throttle decorator
+        F = 20
+        N = 20
+        F_throttled = throttle.measure_throttle(n=N, per_sec=F)
+        assert F_throttled < F and F_throttled > 0.9*F
+
 
 if __name__ == '__main__':
     suite = unittest.TestLoader().loadTestsFromTestCase(cdwlib_test)
