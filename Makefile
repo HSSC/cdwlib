@@ -31,12 +31,12 @@ clean-pkg:
 	find ../ -maxdepth 1 -iname '$(PACKAGE)_*.dsc' -exec rm -f {} +
 	find ../ -maxdepth 1 -iname '$(PACKAGE)_*.tar.gz' -exec rm -f {} +
 
-test:
+test: clean-build clean-pyc release
 	python setup.py test
 
 release: clean
 	python setup.py sdist
 
-debian: clean-pkg
+debian: clean-pkg test
 	sh make_deb.sh
 
