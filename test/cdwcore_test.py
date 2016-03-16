@@ -11,6 +11,10 @@ import mock
 
 sys.path.insert(0,os.path.abspath(__file__+"/../../src"))
 
+def _mock_opsys_hostFQDN():
+    return 'myfully.qualifieddomainname.com'
+
+
 def _mock_pg_lscluster():
     import opsys
     (o,e,p,r) = opsys.runCommand('/bin/true')
@@ -88,15 +92,17 @@ class cdwlib_test(unittest.TestCase):
         c = opsys.canonify('127.0.0.1')
         self.assertEqual(c, '127_0_0_1')
 
-        fqdn = opsys.hostFQDN()
-        assert fqdn['short'] is not None
-        assert fqdn['site'] is not None
-
         sfilename = 'setup.py'
         setup_file = sys.modules['__main__'].__file__
         flist = opsys.fileMatch(os.path.abspath(os.path.dirname(setup_file)),sfilename)
         self.assertEqual(len(flist), 1)
         self.assertEqual(flist[0], sfilename)
+
+        @mock.patch('opsys.hostFQDN', side_effect=_mock_opsys_hostFQDN)
+        def test_hostFQDN():
+            fqdn = opsys.hostFQDN()
+            assert fqdn['short'] is not None
+            assert fqdn['site'] is not None
 
     ## unit test for dbmath
     def test_dbmath(self):
