@@ -1,5 +1,5 @@
 Source: cdwlib
-Maintainer: Venkat Kaushik <venkatesh.kaushik@emc.com>
+Maintainer: Venkat Kaushik <higgssmass@gmail.com>
 Section: python
 Priority: optional
 Build-Depends: python, python-dev, dh-virtualenv, debhelper (>= 9)

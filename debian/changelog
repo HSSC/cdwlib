@@ -1,5 +1,6 @@
-cdwlib (0.0.1) unstable; urgency=low
+cdwlib (0.0.1ubuntu1) UNRELEASED; urgency=medium
 
-  * source package automatically created by stdeb 0.6.0+git
+  * source package automatically created by stdeb 0.6.0+git 
 
- -- Venkat Kaushik <higgsmass@gmail.com>  Tue, 11 Aug 2015 10:48:05 -0400
+ -- Venkatesh Kaushik <venkat@venkat.work>  Wed, 16 Mar 2016 14:47:52 -0400
+
