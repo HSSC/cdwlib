@@ -55,7 +55,7 @@ def parseIP():
     ifaces=[]
     out = None
     try:
-        out, err, p, res = runCommand('/bin/ip address show')
+        out, err, p, res = runCommand('ip address show')
     except OSError:
         raise
         return (p.returncode, ifaces, vdev)

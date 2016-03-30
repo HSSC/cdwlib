@@ -1,6 +1,7 @@
 CHANGES
 =======
 
+* added throttle decorator
 * mock the hostFQDN function to allow dev stations that do not have fqdn hostname
 * added dependencies to test and debian targets
 * fixed parsing of debian/changelog
